@@ -9,7 +9,7 @@
 }
 
 html, body {
-  color: black;
+  color: #D43078;
   font-family: 'Fakt', sans-serif;
   margin: 0;
   overflow: hidden;
@@ -18,6 +18,13 @@ html, body {
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Standard syntax */
   zoom: normal;
+}
+
+.title {
+  color: #D43078;
+  font-family: 'Salvaje';
+  font-size: 40px;
+  padding: 1em;
 }
 
 .sticker {

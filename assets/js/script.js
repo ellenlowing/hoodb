@@ -20,8 +20,8 @@ window.onload = function() {
   stickers.each( function (i) {
     $(this).css(
       {
-        'top': Math.floor(Math.random() * window.innerHeight).toString() + 'px',
-        'left': Math.floor(Math.random() * window.innerWidth).toString() + 'px',
+        'top': Math.floor(Math.random() * (window.innerHeight-200)).toString() + 'px',
+        'left': Math.floor(Math.random() * (window.innerWidth-200)).toString() + 'px',
         'z-index': i+10
       });
   });
