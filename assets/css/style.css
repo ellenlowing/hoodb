@@ -19,3 +19,14 @@ html, body {
   user-select: none; /* Standard syntax */
   zoom: normal;
 }
+
+.sticker {
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: auto;
+  -webkit-user-drag: none; /* Safari 3.1+ */
+  -moz-user-drag: none; /* Firefox 2+ */
+  -ms-user-drag: none; /* IE 10+ */
+  user-drag: none; /* Standard syntax */
+}

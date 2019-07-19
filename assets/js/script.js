@@ -1,10 +1,10 @@
-var imgSelected = false;
-var imgSelectId = -1;
-var prevMouseX = -1;
-var prevMouseY = -1;
+let imgSelected = false;
+let imgSelectId = -1;
+let prevMouseX = -1;
+let prevMouseY = -1;
 
 function isMobile() {
-  var md = new MobileDetect(window.navigator.userAgent);
+  let md = new MobileDetect(window.navigator.userAgent);
   if(md.mobile()){
     return true;
   } else {
@@ -12,20 +12,24 @@ function isMobile() {
   }
 }
 
-var mobileMode = isMobile();
+let mobileMode = isMobile();
 
 window.onload = function() {
 
-  // Load images
-  var img = $('.img');
-  img.each(function(index) {
-    $(this).css('display', 'block');
+  let stickers = $('.sticker');
+  stickers.each( function (i) {
+    $(this).css(
+      {
+        'top': Math.floor(Math.random() * window.innerHeight).toString() + 'px',
+        'left': Math.floor(Math.random() * window.innerWidth).toString() + 'px',
+        'z-index': i+10
+      });
   });
 
-  // Set up event listeners for pseudo-img class elements
+  // Set up event listeners for sticker class elements
   if(!mobileMode) {
-    var pseudoimg = $('.pseudo-img');
-    pseudoimg.each(function(index) {
+    let stickers = $('.sticker');
+    stickers.each(function(index) {
       $(this).bind( {
         mousedown: function (e) {
           imgSelected = true;
@@ -34,36 +38,23 @@ window.onload = function() {
           prevMouseY = e.clientY - this.offsetTop;
 
           // Sort depth of images
-          var pseudoSelectZ = $(this).css('z-index');
-          var selectZ = $('#img-' + (imgSelectId+1).toString()).css('z-index');
-          $('.pseudo-img').each( function(index) {
+          let zz = $(this).css('z-index');
+          $('.sticker').each( function(index) {
             if(index === imgSelectId) {
-              $(this).css('z-index', '98');
-            } else if ( $(this).css('z-index') > pseudoSelectZ ) {
-              var z = $(this).css('z-index')-1;
-              $(this).css('z-index', z.toString());
-            }
-          });
-          $('.img').each( function(index) {
-            if(index === imgSelectId) {
-              $(this).css('z-index', '8');
-            } else if ( $(this).css('z-index') > selectZ ) {
-              var z = $(this).css('z-index')-1;
+              $(this).css('z-index', '20');
+            } else if ( $(this).css('z-index') > zz ) {
+              let z = $(this).css('z-index')-1;
               $(this).css('z-index', z.toString());
             }
           });
         },
         mousemove: function(e) {
           if(imgSelected && imgSelectId === index) {
-            var currMouseX = e.clientX;
-            var currMouseY = e.clientY;
-            var transformX = currMouseX - prevMouseX;
-            var transformY = currMouseY - prevMouseY;
+            let currMouseX = e.clientX;
+            let currMouseY = e.clientY;
+            let transformX = currMouseX - prevMouseX;
+            let transformY = currMouseY - prevMouseY;
             $(this).css({
-              'left': transformX,
-              'top' : transformY
-            });
-            $('#img-' + (imgSelectId+1).toString()).css({
               'left': transformX,
               'top' : transformY
             });
@@ -80,35 +71,27 @@ window.onload = function() {
       });
     });
   } else {
-    var pseudoimg = document.getElementsByClassName('pseudo-img');
-    for(var i = 0; i < pseudoimg.length; i++) {
-      var pseudo = pseudoimg[i];
+    let stickers = document.getElementsByClassName('sticker');
+    for(let i = 0; i < stickers.length; i++) {
+      let pseudo = stickers[i];
 
       // touchstart
       pseudo.addEventListener('touchstart', (event) => {
-        var target = event.target;
+        let target = event.target;
         imgSelected = true;
         imgSelectId = target.id.substring(target.id.length-1, target.id.length)-1;
-        var touch = event.targetTouches[0];
+        let touch = event.targetTouches[0];
         prevMouseX = touch.clientX - target.offsetLeft;
         prevMouseY = touch.clientY - target.offsetTop;
 
         // Sort depth of images
-        var pseudoSelectZ = target.style.zIndex;
-        var selectZ = $('#img-' + (imgSelectId+1).toString()).css('z-index');
-        $('.pseudo-img').each( function(index) {
+        let pseudoSelectZ = target.style.zIndex;
+        let selectZ = $('#img-' + (imgSelectId+1).toString()).css('z-index');
+        $('.sticker').each( function(index) {
           if(index === imgSelectId) {
             $(this).css('z-index', '98');
           } else if ( $(this).css('z-index') > pseudoSelectZ ) {
-            var z = $(this).css('z-index')-1;
-            $(this).css('z-index', z.toString());
-          }
-        });
-        $('.img').each( function(index) {
-          if(index === imgSelectId) {
-            $(this).css('z-index', '8');
-          } else if ( $(this).css('z-index') > selectZ ) {
-            var z = $(this).css('z-index')-1;
+            let z = $(this).css('z-index')-1;
             $(this).css('z-index', z.toString());
           }
         });
@@ -117,12 +100,12 @@ window.onload = function() {
       // touchmove
       pseudo.addEventListener('touchmove', (event) => {
         if(imgSelected && imgSelectId === event.target.id.substring(event.target.id.length-1, event.target.id.length)-1) {
-          var touch = event.targetTouches[0];
-          var currMouseX = touch.clientX;
-          var currMouseY = touch.clientY;
-          var transformX = currMouseX - prevMouseX;
-          var transformY = currMouseY - prevMouseY;
-          $('#pseudo-img-' + (imgSelectId+1).toString()).css({
+          let touch = event.targetTouches[0];
+          let currMouseX = touch.clientX;
+          let currMouseY = touch.clientY;
+          let transformX = currMouseX - prevMouseX;
+          let transformY = currMouseY - prevMouseY;
+          $('#sticker-' + (imgSelectId+1).toString()).css({
             'left': transformX,
             'top' : transformY
           });
