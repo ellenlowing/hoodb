@@ -1,17 +1,13 @@
 @font-face {
-    font-family: Fakt;
-    src: url('../font/FAKTPRO-SEMIBOLD.OTF') format("opentype");
-}
-
-@font-face {
-    font-family: Salvaje;
-    src: url('../font/SALVAJEDISPLAY-REGULAR.OTF') format("opentype");
+  font-family: bookos;
+  src: url('../fonts/Bookman Old Style/BOOKOS.TTF') format("truetype");
 }
 
 html, body {
   color: #D43078;
-  font-family: 'Fakt', sans-serif;
+  font-family: 'bookos', serif;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
@@ -20,20 +16,83 @@ html, body {
   zoom: normal;
 }
 
-.title {
-  color: #D43078;
-  font-family: 'Salvaje';
-  font-size: 40px;
-  padding: 1em;
+.menu-item {
+  display: block;
+  margin: 30px;
+  position: relative;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+}
+
+#kellyli {
+  background: url('../img/menu/kelly_grp.png');
+  background-position: 0 -123px;
+  background-size: 369px 246px;
+  background-repeat: no-repeat;
+  height: 123px;
+  width: 369px;
+}
+
+/* #kellyli:hover {
+  background-position: 0 -123px;
+} */
+
+#reel {
+  background: url('../img/menu/reel_grp.png');
+  background-position: 0 0;
+  background-size: 175px 112px;
+  background-repeat: no-repeat;
+  height: 56px;
+  width: 175px;
+}
+
+#reel:hover {
+  background-position: 0 -56px;
+}
+
+#illustrated {
+  background: url('../img/menu/illustrated_grp.png');
+  background-position: 0 0;
+  background-size: 260px 148px;
+  background-repeat: no-repeat;
+  height: 74px;
+  width: 260px;
+}
+
+#illustrated:hover {
+  background-position: 0 -74px;
+}
+
+#photography {
+  background: url('../img/menu/photography_grp.png');
+  background-position: 0 0;
+  background-size: 237px 116px;
+  background-repeat: no-repeat;
+  height: 58px;
+  width: 237px;
+}
+
+#photography:hover {
+  background-position: 0 -58px;
 }
 
 .sticker {
   display: block;
   position: absolute;
-  width: 200px;
+  width: 100px;
   height: auto;
   -webkit-user-drag: none; /* Safari 3.1+ */
   -moz-user-drag: none; /* Firefox 2+ */
   -ms-user-drag: none; /* IE 10+ */
   user-drag: none; /* Standard syntax */
+}
+
+.sticker:hover {
+  cursor: grab;
+}
+
+.sticker:active {
+  cursor: grabbing;
 }
