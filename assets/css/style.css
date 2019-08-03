@@ -19,29 +19,43 @@ html, body {
 
 .container {
   display: inline-grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 288px auto; /* based on width of kelly icon */
   width: 100vw;
   height: 100vh;
 }
 
+.item {
+  z-index: 10;
+}
+
 .menu {
-  /* padding-top: 30px;
-  padding-left: 30px; */
-  /* width: fit-content; */
+  position: relative;
+  overflow: hidden;
 }
 
 .menu-item {
   display: block;
   margin: 24px;
   position: relative;
-  z-index: 10;
 }
 
-.menu-item:not(#kellyli):hover {
+.menu-item:hover {
   cursor: pointer;
 }
 
-#kellyli {
+.socialmedia {
+  display: block;
+  margin: 24px;
+  position: absolute;
+  bottom: 0;
+}
+
+.socialmedia td {
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+#title-kellyli {
   background: url('../img/menu/Kelly.png');
   background-position: 0 0;
   background-size: 240px 80px;
@@ -50,7 +64,7 @@ html, body {
   width: 240px;
 }
 
-#videos {
+#title-videos {
   background: url('../img/menu/videos.png');
   background-position: 0 0;
   background-size: 173px 75.4px;
@@ -59,11 +73,12 @@ html, body {
   width: 173px;
 }
 
-#videos:hover {
+#title-videos:hover,
+#title-videos.active {
   background-position: 0 -37.7px;
 }
 
-#graphics {
+#title-graphics {
   background: url('../img/menu/graphics.png');
   background-position: 0 0;
   background-size: 165px 82.84px;
@@ -72,11 +87,12 @@ html, body {
   width: 165px;
 }
 
-#graphics:hover {
+#title-graphics:hover,
+#title-graphics.active {
   background-position: 0 -41.42px;
 }
 
-#photography {
+#title-photography {
   background: url('../img/menu/photography.png');
   background-position: 0 0;
   background-size: 154px 72.7px;
@@ -85,7 +101,8 @@ html, body {
   width: 154px;
 }
 
-#photography:hover {
+#title-photography:hover,
+#title-photography.active {
   background-position: 0 -36.35px;
 }
 
@@ -113,11 +130,37 @@ html, body {
   color: #00f;
 }
 
-#personal {
+.content {
+  overflow: scroll;
+}
+
+.content-item {
+  display: none;
+}
+
+.iframe-item {
+  padding: 24px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 640px;
+  z-index: 10;
+}
+
+/* #iframe-reel {
+
+    width: 100%;
+    height: 56.25%;
+} */
+
+.active {
+  display: block;
+}
+
+#content-kellyli {
   background-color: #fff;
   border: 1px solid #00f;
   color: #000;
-  display: block;
   font-family: 'Times New Roman', serif;
   font-size: 20px;
   line-height: 24px;
@@ -128,5 +171,4 @@ html, body {
   height: 178px;
   top: 300px;
   left: 400px;
-  z-index: 10;
 }

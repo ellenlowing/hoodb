@@ -3,20 +3,11 @@ let imgSelectId = -1;
 let prevMouseX = -1;
 let prevMouseY = -1;
 
-function isMobile() {
-  let md = new MobileDetect(window.navigator.userAgent);
-  if(md.mobile()){
-    return true;
-  } else {
-    return false;
-  }
-}
-
 let mobileMode = isMobile();
 
 window.onload = function() {
 
-  let stickers = $('.sticker').not('#personal');
+  let stickers = $('.sticker').not('#content-kellyli');
   stickers.each( function (i) {
     $(this).css(
       {
@@ -24,10 +15,6 @@ window.onload = function() {
         'left': Math.floor(Math.random() * (window.innerWidth-200)).toString() + 'px',
         'z-index': i
       });
-  });
-  $('#personal').css( {
-    'top': Math.floor(Math.random() * (window.innerHeight-178)).toString() + 'px',
-    'left': Math.floor(Math.random() * (window.innerWidth-376)).toString() + 'px'
   });
 
   // Set up event listeners for sticker class elements
@@ -43,7 +30,7 @@ window.onload = function() {
 
           // Sort depth of images
           let zz = $(this).css('z-index');
-          $('.sticker').not('#personal').each( function(index) {
+          $('.sticker').not('#content-kellyli').each( function(index) {
             if(index === imgSelectId) {
               $(this).css('z-index', '8');
             } else if ( $(this).css('z-index') > zz ) {
@@ -127,5 +114,26 @@ window.onload = function() {
         imgSelectId = -1;
       }, false);
     }
+  }
+
+  // Set up event listeners for menu buttons
+  let menuitems = $('.menu-item');
+  menuitems.each( function(i) {
+    $(this).click( () => {
+      $('.active').removeClass('active');
+      $(this).addClass('active');
+      let elem = $(this).attr('id').substring(6);
+      let elemclass = '#content-' + elem;
+      $(elemclass).addClass('active');
+    });
+  });
+}
+
+function isMobile() {
+  let md = new MobileDetect(window.navigator.userAgent);
+  if(md.mobile()){
+    return true;
+  } else {
+    return false;
   }
 }
