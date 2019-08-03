@@ -4,7 +4,8 @@
 }
 
 html, body {
-  color: #D43078;
+  background-color: rgb(240,243,242);
+  color: #000;
   font-family: 'bookos', serif;
   margin: 0;
   padding: 0;
@@ -16,66 +17,76 @@ html, body {
   zoom: normal;
 }
 
-.menu-item {
-  display: block;
-  margin: 30px;
-  position: relative;
+.container {
+  display: inline-grid;
+  grid-template-columns: 25% auto;
+  width: 100vw;
+  height: 100vh;
 }
 
-.menu-item:hover {
+.menu {
+  /* padding-top: 30px;
+  padding-left: 30px; */
+  /* width: fit-content; */
+}
+
+.menu-item {
+  display: block;
+  margin: 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.menu-item:not(#kellyli):hover {
   cursor: pointer;
 }
 
 #kellyli {
-  background: url('../img/menu/kelly_grp.png');
-  background-position: 0 -123px;
-  background-size: 369px 246px;
-  background-repeat: no-repeat;
-  height: 123px;
-  width: 369px;
-}
-
-/* #kellyli:hover {
-  background-position: 0 -123px;
-} */
-
-#reel {
-  background: url('../img/menu/reel_grp.png');
+  background: url('../img/menu/kelly.png');
   background-position: 0 0;
-  background-size: 175px 112px;
+  background-size: 240px 80px;
   background-repeat: no-repeat;
-  height: 56px;
-  width: 175px;
+  height: 80px;
+  width: 240px;
 }
 
-#reel:hover {
-  background-position: 0 -56px;
-}
-
-#illustrated {
-  background: url('../img/menu/illustrated_grp.png');
+#videos {
+  background: url('../img/menu/videos.png');
   background-position: 0 0;
-  background-size: 260px 148px;
+  background-size: 173px 75.4px;
   background-repeat: no-repeat;
-  height: 74px;
-  width: 260px;
+  height: 37.7px;
+  width: 173px;
 }
 
-#illustrated:hover {
-  background-position: 0 -74px;
+#videos:hover {
+  background-position: 0 -37.7px;
+}
+
+#graphics {
+  background: url('../img/menu/graphics.png');
+  background-position: 0 0;
+  background-size: 165px 82.84px;
+  background-repeat: no-repeat;
+  height: 41.42px;
+  width: 165px;
+}
+
+#graphics:hover {
+  background-position: 0 -41.42px;
 }
 
 #photography {
-  background: url('../img/menu/photography_grp.png');
+  background: url('../img/menu/photography.png');
   background-position: 0 0;
-  background-size: 237px 116px;
+  background-size: 154px 72.7px;
   background-repeat: no-repeat;
-  height: 58px;
-  width: 237px;
+  height: 36.35px;
+  width: 154px;
 }
 
 #photography:hover {
-  background-position: 0 -58px;
+  background-position: 0 -36.35px;
 }
 
 .sticker {
@@ -95,4 +106,27 @@ html, body {
 
 .sticker:active {
   cursor: grabbing;
+}
+
+.oldschool-link,
+.oldschool-link:active {
+  color: #00f;
+}
+
+#personal {
+  background-color: #fff;
+  border: 1px solid #00f;
+  color: #000;
+  display: block;
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 8px;
+  padding-left: 8px;
+  position: absolute;
+  width: 376px;
+  height: 178px;
+  top: 300px;
+  left: 400px;
+  z-index: 10;
 }

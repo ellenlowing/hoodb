@@ -16,14 +16,18 @@ let mobileMode = isMobile();
 
 window.onload = function() {
 
-  let stickers = $('.sticker');
+  let stickers = $('.sticker').not('#personal');
   stickers.each( function (i) {
     $(this).css(
       {
         'top': Math.floor(Math.random() * (window.innerHeight-200)).toString() + 'px',
         'left': Math.floor(Math.random() * (window.innerWidth-200)).toString() + 'px',
-        'z-index': i+10
+        'z-index': i
       });
+  });
+  $('#personal').css( {
+    'top': Math.floor(Math.random() * (window.innerHeight-178)).toString() + 'px',
+    'left': Math.floor(Math.random() * (window.innerWidth-376)).toString() + 'px'
   });
 
   // Set up event listeners for sticker class elements
@@ -39,9 +43,9 @@ window.onload = function() {
 
           // Sort depth of images
           let zz = $(this).css('z-index');
-          $('.sticker').each( function(index) {
+          $('.sticker').not('#personal').each( function(index) {
             if(index === imgSelectId) {
-              $(this).css('z-index', '20');
+              $(this).css('z-index', '8');
             } else if ( $(this).css('z-index') > zz ) {
               let z = $(this).css('z-index')-1;
               $(this).css('z-index', z.toString());
