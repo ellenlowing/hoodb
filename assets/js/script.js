@@ -30,6 +30,7 @@ window.onload = function() {
 
           // Sort depth of images
           let zz = $(this).css('z-index');
+
           $('.sticker').not('#content-kellyli').each( function(index) {
             if(index === imgSelectId) {
               $(this).css('z-index', '8');
@@ -62,58 +63,58 @@ window.onload = function() {
       });
     });
   } else {
-    let stickers = document.getElementsByClassName('sticker');
-    for(let i = 0; i < stickers.length; i++) {
-      let pseudo = stickers[i];
-
-      // touchstart
-      pseudo.addEventListener('touchstart', (event) => {
-        let target = event.target;
-        imgSelected = true;
-        imgSelectId = target.id.substring(target.id.length-1, target.id.length)-1;
-        let touch = event.targetTouches[0];
-        prevMouseX = touch.clientX - target.offsetLeft;
-        prevMouseY = touch.clientY - target.offsetTop;
-
-        // Sort depth of images
-        let pseudoSelectZ = target.style.zIndex;
-        let selectZ = $('#img-' + (imgSelectId+1).toString()).css('z-index');
-        $('.sticker').each( function(index) {
-          if(index === imgSelectId) {
-            $(this).css('z-index', '98');
-          } else if ( $(this).css('z-index') > pseudoSelectZ ) {
-            let z = $(this).css('z-index')-1;
-            $(this).css('z-index', z.toString());
-          }
-        });
-      }, false);
-
-      // touchmove
-      pseudo.addEventListener('touchmove', (event) => {
-        if(imgSelected && imgSelectId === event.target.id.substring(event.target.id.length-1, event.target.id.length)-1) {
-          let touch = event.targetTouches[0];
-          let currMouseX = touch.clientX;
-          let currMouseY = touch.clientY;
-          let transformX = currMouseX - prevMouseX;
-          let transformY = currMouseY - prevMouseY;
-          $('#sticker-' + (imgSelectId+1).toString()).css({
-            'left': transformX,
-            'top' : transformY
-          });
-          $('#img-' + (imgSelectId+1).toString()).css({
-            'left': transformX,
-            'top' : transformY
-          });
-        }
-        console.log('touch move');
-      }, false);
-
-      // touchend
-      pseudo.addEventListener('touchend', (event) => {
-        imgSelected = false;
-        imgSelectId = -1;
-      }, false);
-    }
+    // let stickers = document.getElementsByClassName('sticker');
+    // for(let i = 0; i < stickers.length; i++) {
+    //   let pseudo = stickers[i];
+    //
+    //   // touchstart
+    //   pseudo.addEventListener('touchstart', (event) => {
+    //     let target = event.target;
+    //     imgSelected = true;
+    //     imgSelectId = target.id.substring(target.id.length-1, target.id.length)-1;
+    //     let touch = event.targetTouches[0];
+    //     prevMouseX = touch.clientX - target.offsetLeft;
+    //     prevMouseY = touch.clientY - target.offsetTop;
+    //
+    //     // Sort depth of images
+    //     let pseudoSelectZ = target.style.zIndex;
+    //     let selectZ = $('#img-' + (imgSelectId+1).toString()).css('z-index');
+    //     $('.sticker').each( function(index) {
+    //       if(index === imgSelectId) {
+    //         $(this).css('z-index', '98');
+    //       } else if ( $(this).css('z-index') > pseudoSelectZ ) {
+    //         let z = $(this).css('z-index')-1;
+    //         $(this).css('z-index', z.toString());
+    //       }
+    //     });
+    //   }, false);
+    //
+    //   // touchmove
+    //   pseudo.addEventListener('touchmove', (event) => {
+    //     if(imgSelected && imgSelectId === event.target.id.substring(event.target.id.length-1, event.target.id.length)-1) {
+    //       let touch = event.targetTouches[0];
+    //       let currMouseX = touch.clientX;
+    //       let currMouseY = touch.clientY;
+    //       let transformX = currMouseX - prevMouseX;
+    //       let transformY = currMouseY - prevMouseY;
+    //       $('#sticker-' + (imgSelectId+1).toString()).css({
+    //         'left': transformX,
+    //         'top' : transformY
+    //       });
+    //       $('#img-' + (imgSelectId+1).toString()).css({
+    //         'left': transformX,
+    //         'top' : transformY
+    //       });
+    //     }
+    //     console.log('touch move');
+    //   }, false);
+    //
+    //   // touchend
+    //   pseudo.addEventListener('touchend', (event) => {
+    //     imgSelected = false;
+    //     imgSelectId = -1;
+    //   }, false);
+    // }
   }
 
   // Set up event listeners for menu buttons

@@ -140,6 +140,10 @@ html, body {
   display: none;
 }
 
+.placeholder {
+  display: none;
+}
+
 .iframe-container {
   display: block;
   position: relative;
@@ -165,13 +169,12 @@ html, body {
 
 .img-item {
   display: block;
-  margin-top: 24px;
-  margin-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 48px;
   width: 90%;
   max-width: 860px;
-  min-width: 400px;
 }
 
 .active {
@@ -192,4 +195,113 @@ html, body {
   height: 178px;
   top: 300px;
   left: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: block;
+    grid-template-columns: auto;
+  }
+
+  .menu {
+    display: inline;
+    position: relative;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+  }
+
+  .menu-right {
+    display: inline-block;
+    float: right;
+    position: relative;
+  }
+
+  .menu-right .menu-item {
+    position: absolute;
+    right: 0;
+  }
+
+  .menu-item,
+  .socialmedia-item {
+    z-index: 20;
+  }
+
+  .socialmedia {
+    position: absolute;
+    top: calc(100vh - 200px);
+    z-index: 20;
+  }
+
+  .socialmedia tr {
+    display: table-cell;
+  }
+
+  .socialmedia-item img {
+    width: 50px;
+    height: 46.3px;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+  }
+
+  .placeholder {
+    display: block;
+    width:100vw;
+    height:200px;
+    z-index: 0;
+  }
+
+  /* .iframe-container {
+    display: block;
+    position: relative;
+    margin-top: 24px;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .iframe-container iframe,
+  .iframe-container object,
+  .iframe-container embed {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -45%;
+    width: 90%;
+    height: 90%;
+    max-width: 860px;
+  } */
+
+  #title-kellyli {
+    background-size: 210px 70px;
+    display: inline-block;
+    height: 70px;
+    width: 210px;
+  }
+
+  #title-graphics {
+    top: 60px;
+  }
+
+  #title-photography {
+    top: 120px;
+  }
+
+  #content-kellyli {
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 8px;
+    padding-left: 8px;
+    position: absolute;
+    width: 260px;
+    height: 120px;
+    top: 300px;
+    left: 100px;
+  }
 }
