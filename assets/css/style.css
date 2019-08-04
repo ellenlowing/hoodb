@@ -6,6 +6,7 @@
 html, body {
   background-color: rgb(240,243,242);
   color: #000;
+  cursor: url('../cursor.png'), auto;
   font-family: 'bookos', serif;
   margin: 0;
   padding: 0;
