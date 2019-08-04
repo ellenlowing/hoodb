@@ -42,7 +42,7 @@ html, body {
 }
 
 .menu-item:hover {
-  cursor: pointer;
+  cursor: url('../hover.png'), auto;
 }
 
 .socialmedia {
@@ -120,11 +120,11 @@ html, body {
 }
 
 .sticker:hover {
-  cursor: grab;
+  cursor: url('../hover.png'), auto;
 }
 
 .sticker:active {
-  cursor: grabbing;
+  cursor: url('../hover.png'), auto;
 }
 
 .oldschool-link,
