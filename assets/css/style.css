@@ -134,6 +134,7 @@ html, body {
 
 .content {
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .content-item {
@@ -233,6 +234,10 @@ html, body {
     z-index: 20;
   }
 
+  .socialmedia table {
+    border-spacing: 0;
+  }
+
   .socialmedia tr {
     display: table-cell;
   }
@@ -274,12 +279,11 @@ html, body {
   #content-kellyli {
     font-size: 14px;
     line-height: 16px;
-    padding-top: 8px;
-    padding-left: 8px;
-    position: relative;
+    position: absolute;
     width: 260px;
     height: 120px;
     top: 300px;
     left: 100px;
+    z-index: 30;
   }
 }
