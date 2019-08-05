@@ -23,6 +23,7 @@ window.onload = function() {
     stickers.each(function(index) {
       $(this).bind( {
         mousedown: function (e) {
+          e.preventDefault();
           imgSelected = true;
           imgSelectId = index;
           prevMouseX = e.clientX - this.offsetLeft;
@@ -30,8 +31,6 @@ window.onload = function() {
 
           // Sort depth of images
           let zz = $(this).css('z-index');
-
-
           if(imgSelectId > 0) {
             $('.sticker').each( function(index) {
               if(index === imgSelectId) {
@@ -44,6 +43,7 @@ window.onload = function() {
           }
         },
         mousemove: function(e) {
+          e.preventDefault();
           if(imgSelected && imgSelectId === index) {
             let currMouseX = e.clientX;
             let currMouseY = e.clientY;
@@ -56,35 +56,40 @@ window.onload = function() {
           }
         },
         mouseup: function(e) {
+          e.preventDefault();
           imgSelected = false;
           imgSelectId = -1;
         },
         mouseleave: function(e) {
+          e.preventDefault();
           imgSelected = false;
           imgSelectId = -1;
         }
       });
     });
   } else {
+
     let stickers = document.getElementsByClassName('sticker');
     for(let i = 0; i < stickers.length; i++) {
       let sticker = stickers[i];
 
       // touchstart
       sticker.addEventListener('touchstart', (event) => {
+        event.preventDefault();
         let target = event.target;
         imgSelected = true;
-        imgSelectId = target.id.substring(target.id.length-1, target.id.length)-1;
+        imgSelectId = target.id;
         let touch = event.targetTouches[0];
         prevMouseX = touch.clientX - target.offsetLeft;
         prevMouseY = touch.clientY - target.offsetTop;
 
         // Sort depth of images
-        if(imgSelectId > 0) {
+        if(imgSelectId != 'content-kellyli') {
           let stickerSelectZ = target.style.zIndex;
-          let selectZ = $('#sticker-' + (imgSelectId+1).toString()).css('z-index');
+          let selectZ = $('#' + imgSelectId).css('z-index');
+          let selectNum = Number(imgSelectId.substring(imgSelectId.length-1, imgSelectId.length));
           $('.sticker').each( function(index) {
-            if(index === imgSelectId) {
+            if(index === selectNum) {
               $(this).css('z-index', '7');
             } else if ( $(this).css('z-index') > stickerSelectZ ) {
               let z = $(this).css('z-index')-1;
@@ -96,22 +101,23 @@ window.onload = function() {
 
       // touchmove
       sticker.addEventListener('touchmove', (event) => {
-        if(imgSelected && imgSelectId === event.target.id.substring(event.target.id.length-1, event.target.id.length)-1) {
+        event.preventDefault();
+        if(imgSelected && imgSelectId === event.target.id) {
           let touch = event.targetTouches[0];
           let currMouseX = touch.clientX;
           let currMouseY = touch.clientY;
           let transformX = currMouseX - prevMouseX;
           let transformY = currMouseY - prevMouseY;
-          $('#sticker-' + (imgSelectId+1).toString()).css({
+          $('#'+imgSelectId).css({
             'left': transformX,
             'top' : transformY
           });
         }
-        console.log('touch move');
       }, false);
 
       // touchend
       sticker.addEventListener('touchend', (event) => {
+        event.preventDefault();
         imgSelected = false;
         imgSelectId = -1;
       }, false);
@@ -130,6 +136,43 @@ window.onload = function() {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+  let active = false;
+
+  const lazyLoad = function() {
+    console.log('triggered');
+    if (active === false) {
+      active = true;
+
+      setTimeout(function() {
+        lazyImages.forEach(function(lazyImage) {
+          if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0)) {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove("lazy");
+
+            lazyImages = lazyImages.filter(function(image) {
+              return image !== lazyImage;
+            });
+
+            if (lazyImages.length === 0) {
+              document.getElementsByClassName("content")[0].removeEventListener("scroll", lazyLoad);
+              window.removeEventListener("resize", lazyLoad);
+              window.removeEventListener("orientationchange", lazyLoad);
+            }
+          }
+        });
+
+        active = false;
+      }, 200);
+    }
+  };
+
+  document.getElementsByClassName("content")[0].addEventListener("scroll", lazyLoad);
+  window.addEventListener("resize", lazyLoad);
+  window.addEventListener("orientationchange", lazyLoad);
+});
 
 function isMobile() {
   let md = new MobileDetect(window.navigator.userAgent);

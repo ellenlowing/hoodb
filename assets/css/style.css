@@ -11,6 +11,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  overflow-x: hidden;
   -webkit-user-select: none; /* Safari 3.1+ */
   -moz-user-select: none; /* Firefox 2+ */
   -ms-user-select: none; /* IE 10+ */
@@ -97,15 +98,15 @@ html, body {
 #title-photography {
   background: url('../img/menu/photography.png');
   background-position: 0 0;
-  background-size: 154px 72.7px;
+  background-size: 154px 72px;
   background-repeat: no-repeat;
-  height: 36.35px;
+  height: 36px;
   width: 154px;
 }
 
 #title-photography:hover,
 #title-photography.active {
-  background-position: 0 -36.35px;
+  background-position: 0 -36px;
 }
 
 .sticker {
@@ -165,7 +166,6 @@ html, body {
   margin-left: -45%;
   width: 90%;
   height: 90%;
-  max-width: 860px;
 }
 
 .img-item {
@@ -175,7 +175,6 @@ html, body {
   margin-top: 24px;
   margin-bottom: 48px;
   width: 90%;
-  max-width: 860px;
 }
 
 .active {
@@ -230,6 +229,7 @@ html, body {
 
   .socialmedia {
     position: absolute;
+    bottom: 0;
     top: calc(100vh - 200px);
     z-index: 20;
   }
