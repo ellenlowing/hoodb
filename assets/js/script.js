@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function() {
   let active = false;
 
   const lazyLoad = function() {
-    console.log('triggered');
     if (active === false) {
       active = true;
 
