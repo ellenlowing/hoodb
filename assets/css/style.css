@@ -135,7 +135,7 @@ html, body {
 
 .content {
   overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .content-item {
@@ -238,7 +238,7 @@ html, body {
     position: absolute;
     bottom: 0;
     top: calc(100vh - 160px);
-    z-index: 20;
+    /* z-index: 20; */
   }
 
   .socialmedia table {
@@ -264,7 +264,8 @@ html, body {
     top: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 20;
+    /* z-index: 20; */
+    /* transform: translateZ(1px); */
   }
 
   .placeholder {
