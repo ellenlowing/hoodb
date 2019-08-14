@@ -212,6 +212,10 @@ html, body {
     z-index: 30;
   }
 
+  .menu-item, .socialmedia {
+    margin: 20px;
+  }
+
   .menu-right {
     display: inline-block;
     float: right;
@@ -233,7 +237,7 @@ html, body {
   .socialmedia {
     position: absolute;
     bottom: 0;
-    top: calc(100vh - 200px);
+    top: calc(100vh - 160px);
     z-index: 20;
   }
 
