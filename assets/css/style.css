@@ -7,7 +7,8 @@ html, body {
   background-color: rgb(240,243,242);
   color: #000;
   cursor: url('../cursor.png'), auto;
-  font-family: 'bookos', serif;
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -17,6 +18,10 @@ html, body {
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Standard syntax */
   zoom: normal;
+}
+
+#content-graphics {
+  margin: 20px;
 }
 
 .container {

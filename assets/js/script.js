@@ -135,6 +135,8 @@ window.onload = function() {
       $(elemclass).addClass('active');
     });
   });
+
+  $('.content').on('scroll', scroll);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -172,6 +174,30 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener("resize", lazyLoad);
   window.addEventListener("orientationchange", lazyLoad);
 });
+
+const setValue = () => $('.content').scrollTop();
+const setMax = () => $('.content').prop('scrollHeight') - $('.content').outerHeight();
+const setPercent = () => $('.content').scrollTop() / ($('.content').prop('scrollHeight') - $('.content').outerHeight()) * 100;
+
+function scroll () {
+  console.log('scroll');
+  console.log(100 - setPercent());
+  // $('.progress-hide').css('width', (100 - setPercent()) + '%');
+  // var diff = $('.content').scrollTop() - lastScrollTop;
+  // if( diff > 20 && !shrunkenHeader ) {
+    // if scrolling down AND header is not shrunken => header should shrink
+
+    // $(function () {
+    //   $('.header').children().animate({ 'opacity': '0' }, {duration: 100, queue: false});
+    //   $('.content').animate({'top': '4px'}, {duration: 100, queue: false});
+    //   $('.header').animate( {
+    //     'height': '4px',
+    //     'padding': '0'
+    //   }, {duration: 100, queue: false});
+    // });
+
+  // }
+}
 
 function isMobile() {
   let md = new MobileDetect(window.navigator.userAgent);
