@@ -17,12 +17,12 @@ window.onload = function() {
       });
   });
 
-  $('#sticker-ellen').click( () => {
-    window.open('http://ellenlowing.com');
-  });
-
   // Set up event listeners for sticker class elements
   if(!mobileMode) {
+    $('#sticker-ellen').click( () => {
+      window.open('http://ellenlowing.com');
+    });
+
     let stickers = $('.sticker');
     stickers.each(function(index) {
       $(this).bind( {
@@ -72,6 +72,27 @@ window.onload = function() {
       });
     });
   } else {
+
+    $('#sticker-ellen').css({
+      'bottom': '-50px',
+      'right': '0'
+    });
+
+    $('.speech-bubble').css({
+      'bottom': '40px',
+      'right': '10px'
+    })
+
+    $('#sticker-ellen').click( () => {
+      if(!$('.speech-bubble').hasClass('display')) {
+        $('.speech-bubble').show();
+        $('.speech-bubble').addClass('display');
+      } else {
+        window.open('http://ellenlowing.com');
+        $('.speech-bubble').hide();
+        $('.speech-bubble').removeClass('display');
+      }
+    });
 
     let stickers = document.getElementsByClassName('sticker');
     for(let i = 0; i < stickers.length; i++) {
@@ -178,30 +199,6 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener("resize", lazyLoad);
   window.addEventListener("orientationchange", lazyLoad);
 });
-
-const setValue = () => $('.content').scrollTop();
-const setMax = () => $('.content').prop('scrollHeight') - $('.content').outerHeight();
-const setPercent = () => $('.content').scrollTop() / ($('.content').prop('scrollHeight') - $('.content').outerHeight()) * 100;
-
-function scroll () {
-  console.log('scroll');
-  console.log(100 - setPercent());
-  // $('.progress-hide').css('width', (100 - setPercent()) + '%');
-  // var diff = $('.content').scrollTop() - lastScrollTop;
-  // if( diff > 20 && !shrunkenHeader ) {
-    // if scrolling down AND header is not shrunken => header should shrink
-
-    // $(function () {
-    //   $('.header').children().animate({ 'opacity': '0' }, {duration: 100, queue: false});
-    //   $('.content').animate({'top': '4px'}, {duration: 100, queue: false});
-    //   $('.header').animate( {
-    //     'height': '4px',
-    //     'padding': '0'
-    //   }, {duration: 100, queue: false});
-    // });
-
-  // }
-}
 
 function isMobile() {
   let md = new MobileDetect(window.navigator.userAgent);
