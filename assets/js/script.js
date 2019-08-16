@@ -160,8 +160,6 @@ window.onload = function() {
       $(elemclass).addClass('active');
     });
   });
-
-  $('.content').on('scroll', scroll);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
