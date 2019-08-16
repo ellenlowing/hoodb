@@ -17,6 +17,10 @@ window.onload = function() {
       });
   });
 
+  $('#sticker-ellen').click( () => {
+    window.open('http://ellenlowing.com');
+  });
+
   // Set up event listeners for sticker class elements
   if(!mobileMode) {
     let stickers = $('.sticker');
