@@ -118,7 +118,7 @@ html, body {
 .sticker {
   display: block;
   position: absolute;
-  width: 100px;
+  width: 300px;
   height: auto;
   -webkit-user-drag: none; /* Safari 3.1+ */
   -moz-user-drag: none; /* Firefox 2+ */
