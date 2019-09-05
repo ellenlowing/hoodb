@@ -38,7 +38,7 @@ window.onload = function() {
           if(imgSelectId > 0) {
             $('.sticker').each( function(index) {
               if(index === imgSelectId) {
-                $(this).css('z-index', '7');
+                $(this).css('z-index', '6');
               } else if ( $(this).css('z-index') > zz ) {
                 let z = $(this).css('z-index')-1;
                 $(this).css('z-index', z.toString());
@@ -88,10 +88,17 @@ window.onload = function() {
         $('.speech-bubble').show();
         $('.speech-bubble').addClass('display');
       } else {
-        window.open('http://ellenlowing.com');
+        window.open('https://ellenlowing.com');
         $('.speech-bubble').hide();
         $('.speech-bubble').removeClass('display');
       }
+    });
+
+    // $('#content-kellyli').removeClass('sticker');
+
+    $('#content-kellyli-resume').click( () => {
+      window.open('https://kellylikk.com/assets/KellyLi_Resume_2019.pdf');
+      console.log('open resume');
     });
 
     let stickers = document.getElementsByClassName('sticker');
@@ -100,7 +107,7 @@ window.onload = function() {
 
       // touchstart
       sticker.addEventListener('touchstart', (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         let target = event.target;
         imgSelected = true;
         imgSelectId = target.id;
@@ -109,13 +116,13 @@ window.onload = function() {
         prevMouseY = touch.clientY - target.offsetTop;
 
         // Sort depth of images
-        if(imgSelectId != 'content-kellyli') {
+        if(imgSelectId != 'content-kellyli' && imgSelectId != 'content-kellyli-resume') {
           let stickerSelectZ = target.style.zIndex;
           let selectZ = $('#' + imgSelectId).css('z-index');
           let selectNum = Number(imgSelectId.substring(imgSelectId.length-1, imgSelectId.length));
           $('.sticker').each( function(index) {
             if(index === selectNum) {
-              $(this).css('z-index', '7');
+              $(this).css('z-index', '6');
             } else if ( $(this).css('z-index') > stickerSelectZ ) {
               let z = $(this).css('z-index')-1;
               $(this).css('z-index', z.toString());

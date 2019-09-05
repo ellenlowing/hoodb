@@ -118,7 +118,7 @@ html, body {
 .sticker {
   display: block;
   position: absolute;
-  width: 300px;
+  width: 200px;
   height: auto;
   -webkit-user-drag: none; /* Safari 3.1+ */
   -moz-user-drag: none; /* Firefox 2+ */
@@ -285,6 +285,10 @@ html, body {
   left: 300px;
 }
 
+#content-kellyli-resume {
+  z-index: 10;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     display: block;
@@ -361,6 +365,10 @@ html, body {
     width:100vw;
     height:200px;
     z-index: 0;
+  }
+
+  .sticker {
+    width: 150px;
   }
 
   #title-kellyli {
