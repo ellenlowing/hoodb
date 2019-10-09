@@ -266,6 +266,15 @@ html, body {
   width: 90%;
 }
 
+.graphic-item {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 48px;
+  width: 50%;
+}
+
 .active {
   display: block;
 }
