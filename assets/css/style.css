@@ -372,7 +372,14 @@ html, body {
   .placeholder {
     display: block;
     width:100vw;
-    height:200px;
+    height:160px;
+    z-index: 0;
+  }
+  
+  .placeholder-bottom {
+    display: block;
+    width:100vw;
+    height:100px;
     z-index: 0;
   }
 
