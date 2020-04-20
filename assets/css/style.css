@@ -444,35 +444,59 @@ html, body {
   }
 
   #title-videos {
-    background-size: 140px 61px;
-    height: 30.5px;
-    width: 140px;
+    background-size: 116px 50.8px;
+    height: 25.4px;
+    width: 116.7px;
   }
 
   #title-videos:hover,
   #title-videos.active {
-    background-position: 0 -30.5px;
+    background-position: 0 -25.4px;
   }
 
   #title-graphics {
-    background-size: 130px 65.3px;
-    height: 32.65px;
-    width: 130px;
+    background-size: 108.3px 54.4px;
+    height: 27.2px;
+    width: 108.3px;
   }
 
   #title-graphics:hover,
   #title-graphics.active {
-    background-position: 0 -32.65px;
+    background-position: 0 -27.2px;
   }
 
   #title-photography {
-    background-size: 121px 56.6px;
-    height: 28px;
-    width: 121px;
+    background-size: 100.8px 47.16px;
+    height: 23.58px;
+    width: 100.8px;
   }
 
   #title-photography:hover,
   #title-photography.active {
-    background-position: 0 -28px;
+    background-position: 0 -23.58px;
   }
+
+#title-translation {
+    background-size: 107.3px 50.9px;
+    height: 25.45px;
+    width: 107.3px;
+  }
+
+  #title-translation:hover,
+  #title-translation.active {
+    background-position: 0 -25.45px;
+  }
+
+  #title-graphics {
+    top: 35px;
+  }
+
+  #title-photography {
+    top: 70px;
+  }
+	
+  #title-translation {
+    top: 100px;
+  }
+
 }
