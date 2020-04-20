@@ -20,7 +20,6 @@ html, body {
   zoom: normal;
 }
 
-
 #content-graphics {
   margin: 20px;
 }
@@ -164,7 +163,7 @@ html, body {
   user-drag: none; /* Standard syntax */
   bottom: 20px;
   right: 20px;
-  z-index: -1;
+  z-index: 10;
 }
 
 #sticker-ellen:hover {
@@ -381,7 +380,8 @@ html, body {
   .menu-item,
   .socialmedia-item,
   .img-item,
-  .iframe-item{
+  .iframe-item
+  .text-item{
     z-index: 20;
   }
 
