@@ -164,6 +164,7 @@ html, body {
   user-drag: none; /* Standard syntax */
   bottom: 20px;
   right: 20px;
+  z-index: -1;
 }
 
 #sticker-ellen:hover {
@@ -251,7 +252,6 @@ html, body {
  
 .content-item {
   display: none
-  z-index: 15;
 }
 
 .placeholder {
