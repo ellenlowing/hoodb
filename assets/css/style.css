@@ -115,6 +115,20 @@ html, body {
   background-position: 0 -36px;
 }
 
+#title-translation {
+  background: url('../img/menu/Translation_grp.png');
+  background-position: 0 0;
+  background-size: 157.3px 74.6px;
+  background-repeat: no-repeat;
+  height: 37.3px;
+  width: 157.3px;
+}
+
+#title-translation:hover,
+#title-translation.active {
+  background-position: 0 -37.3px;
+}
+
 .sticker {
   display: block;
   position: absolute;
