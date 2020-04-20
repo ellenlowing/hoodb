@@ -126,7 +126,7 @@ html, body {
 
 #title-translation:hover,
 #title-translation.active {
-  background-position: 0 -37.3px;
+  background-position: 0 +37.3px;
 }
 
 .sticker {
