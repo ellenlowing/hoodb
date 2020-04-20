@@ -8,7 +8,7 @@ html, body {
   color: #000;
   cursor: url('../cursor.png'), auto;
   font-family: "ms", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -19,6 +19,7 @@ html, body {
   user-select: none; /* Standard syntax */
   zoom: normal;
 }
+
 
 #content-graphics {
   margin: 20px;
@@ -245,6 +246,10 @@ html, body {
   /* -webkit-overflow-scrolling: touch; */
 }
 
+.content::-webkit-scrollbar {
+  display: none;
+}
+ 
 .content-item {
   display: none;
 }
