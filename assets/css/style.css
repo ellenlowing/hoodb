@@ -164,7 +164,7 @@ html, body {
   user-drag: none; /* Standard syntax */
   bottom: 20px;
   right: 20px;
-  z-index: 50;
+  z-index: 10;
 }
 
 #sticker-ellen:hover {
@@ -192,7 +192,7 @@ html, body {
   position: absolute;
   bottom: 115px;
   right: 20px;
-  z-index: 49;
+  z-index: 9;
 }
 
 .speech-bubble-msg {
@@ -220,7 +220,7 @@ html, body {
   position: absolute;
   height: 8px;
   left: 49px;
-  z-index: 99;
+  z-index: 10;
 }
 
 .speech-bubble-arrow:after {
@@ -351,11 +351,14 @@ html, body {
     right: 0;
   }
 
+	.content-item{
+		z-index: 15;
+	}
+	
   .menu-item,
   .socialmedia-item,
   .img-item,
-  .iframe-item
-  #content-translation{
+  .iframe-item{
     z-index: 20;
   }
 
@@ -441,13 +444,13 @@ html, body {
     z-index: 30;
   }
 	
-  #shadowBox {
-  background-color: rgb(0, 0, 0);
+    #shadowBox {
+  	background-color: rgba(0, 0, 0, 0);
   } 
 
   .rainbow {
-  font-size: 13px;
-  animation: colorRotate 6s linear 0s infinite;
+	  font-size: 13px;
+	  animation: colorRotate 6s linear 0s infinite;
   }
 
   @keyframes colorRotate {
@@ -468,10 +471,10 @@ html, body {
 	  }
   }
 	
-}
-
-@media only screen and (max-width: 480px) {
-  #title-kellyli {
+    background-size: 121px 56.6px;
+    height: 28px;
+    width: 121px;
+    #title-kellyli {
     background-size: 165px 55px;
     height: 55px;
     width: 165px;
