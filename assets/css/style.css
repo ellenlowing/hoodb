@@ -116,7 +116,7 @@ html, body {
 }
 
 #title-translation {
-  background: url('../img/menu/Translation_grp.png');
+  background: url('../img/menu/translation.png');
   background-position: 0 0;
   background-size: 157.3px 74.6px;
   background-repeat: no-repeat;
@@ -126,7 +126,7 @@ html, body {
 
 #title-translation:hover,
 #title-translation.active {
-  background-position: 0 +37.3px;
+  background-position: 0 -37.3px;
 }
 
 .sticker {
