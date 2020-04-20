@@ -24,6 +24,10 @@ html, body {
   margin: 20px;
 }
 
+#content-translation {
+  margin: 20px;
+}
+
 .container {
   display: inline-grid;
   grid-template-columns: 288px auto; /* based on width of kelly icon */
